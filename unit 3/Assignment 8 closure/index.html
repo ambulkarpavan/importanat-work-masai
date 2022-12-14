@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #query{
+            width: 200px;
+        }
+        #movies{
+            border: 1px solid black;
+            height: 200px;
+            width: 200px;
+            border-top: none;
+            overflow: scroll;
+        }
+        #container{
+            display: flex;
+           
+        }
+        #container #box{
+            margin-left: 150px;
+            
+            text-align: center;
+            margin-top: -50px;
+        }
+        #box img{
+            width: 100%;
+            height: 50%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hostar</h1>
+
+    <a href="trending.html">Trending Movies</a> <br>
+
+    <input oninput=" debounce(main,1000)" type="text" id="query">
+    <div id="container">
+        <div id="movies"></div>
+        <div id="box"></div>
+    </div>
+  
+</body>
+</html>
+
+<script>
+//https://www.omdbapi.com/?apikey=6a41ddca&s=om_shanti_om
+
+let movies_div= document.getElementById("movies");
+ let id;
+async function searchmovies(){
+
+    try{
+        const query=document.getElementById("query").value 
+
+   let res= await fetch(`https://www.omdbapi.com/?s=${query}&apikey=4cf4e8f7`)
+
+
+ let data=await res.json();
+ console.log(data);
+
+ const movies=data.Search;
+return movies;
+
+    }
+    catch(err){
+        console.log(err)
+    }  
+}
+
+function appendmovies(data){
+
+    
+    //optimisation #2
+    movies_div.innerHTML=null;
+
+    data.forEach(function(ele){
+
+        let p=document.createElement("p");
+        p.innerText=ele.Title;
+       p.addEventListener("click",function(){
+        moviedetails(ele);
+       })
+
+        movies_div.append(p);
+       
+    })
+}
+
+async function main(){
+    let data= await searchmovies();
+
+   //optimisation #1
+   if(data===undefined){
+        return false;
+    }
+
+    appendmovies(data)
+
+}
+
+function debounce(func,delay){
+   
+    if(id){
+        clearTimeout(id);
+    }
+    id= setTimeout(function(){
+        func()
+    },delay);
+
+
+}
+
+
+// movie details
+
+
+
+function moviedetails(ele){
+   
+    document.querySelector("#box").innerHTML=null
+
+    let image=document.createElement("img")
+    image.src=ele.Poster
+
+    let year=document.createElement("p")
+   year.innerText=`Year of release: ${ele.Year}`
+
+    let IMDB_rating=document.createElement("p")
+    IMDB_rating.innerText=`IMDB_rating: ${ele.imdbID}`
+
+    let name=document.createElement("p")
+    name.innerText=`Movie_Name: ${ele.Title}`
+
+   
+
+    document.querySelector("#box").append(image,name,year,IMDB_rating);
+
+}
+</script>

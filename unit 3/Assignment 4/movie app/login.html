@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+        <style>
+                #box{
+            display: flex;
+          justify-content: end;
+          border: 2px solid;
+        }
+        #box p{
+            margin:  10px 30px;
+            font-weight: bold;
+        }
+        #box>p>a{
+            text-decoration: none;
+            color: black;
+        }
+        #login-form-div{
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            width: 20%;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+        body{
+            text-align: center;
+           
+        }
+        input{
+            margin-top: 20px;
+            padding: 10px;
+        }
+        #submit{
+            background-color:#008080 ;
+            padding: 5px 30px;
+            border-radius: 5px;
+            color: white;
+            border: 0px ;
+        }
+        </style>
+    </head>
+
+    <body>
+         <div id="box">
+            <p><a href="index.html">Home</a></p>
+            <p><a href="signup.html">Signup</a></p>
+            <p><a href="login.html">Login</a></p>
+
+        </div>
+        <div id="login-form-div">
+            <h1>Login</h1>
+
+            <form>
+                <!--Write form input elements here-->
+                <input id="email" type="email" placeholder="Enter Email"><br>
+                <input id="password" type="password" placeholder="Enter Password"><br>
+                <input id="submit" type="submit">
+
+            </form>
+
+        </div>
+    </body>
+    <script src="./scripts/login.js"></script>
+
+</html>
+
+<!-- <script>
+
+
+
+document.querySelector("form").addEventListener("submit",loginfn)
+
+var userdata=JSON.parse(localStorage.getItem("data"))
+console.log(userdata);
+
+    function loginfn(){
+        event.preventDefault();
+        var enteremail=document.querySelector("#email").value
+        var enterpass=document.querySelector("#password").value
+        
+
+        let flag=false;
+        for(var i=0;i < userdata.length;i++){
+            if(userdata[i].email==enteremail && userdata[i].password==enterpass){
+                flag=true;
+                break;
+                
+               }
+            }
+            if(flag===true){
+                alert("Login Successful");
+                window.location.href="index.html";
+               
+            }
+            else{
+                alert("invalid Credentials");
+                
+
+            }
+</script> -->

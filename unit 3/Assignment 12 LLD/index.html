@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<!-- audiance
+floors
+lot/category wise seats
+slot / seats
+ticket -->
+
+<script>
+
+//audiance
+class audiance{
+    constructor(type,age,gender){
+        this._type=type;
+        this._age=age;
+        this._gender=gender;
+    }
+
+    get type(){
+        return this._type;
+    }
+    set type(value){
+        this._type=value;
+    }
+}
+
+//VVIPs , VIPs, general
+
+
+class VVIPs extends audiance{
+    constructor(age,gender){
+        super("VVIPs",age,gender)
+    }
+}
+
+class VIPs extends audiance{
+    constructor(age,gender){
+        super("VIPs",age,gender)
+    }
+}
+
+class general extends audiance{
+    constructor(age,gender){
+        super("general",age,gender)
+    }
+}
+
+// let c1= new VIPs(24,"male");
+// console.log(c1.type)
+
+
+//slot / seats
+
+class seats{
+    constructor(type,number){
+        this.type=type;
+        this.number=number;
+        this._isbooked=false;
+    }
+
+    get isbooked(){
+        return this._isbooked;
+    }
+
+    set isbooked(value){
+        this._isbooked=value;
+    }
+}
+
+
+// floors
+
+class seatsfloors{
+    constructor(floorno,maxfloor){
+        this.floorno=floorno;
+        this._availseats=[];
+
+
+        for(let i=0;i<maxfloor;i++){
+            if(i===0){
+                this._availseats.push(new seats("general",i))
+            }
+            if(i===1){
+                this._availseats.push(new seats("VIPs",i))
+            }
+            else{
+                this._availseats.push(new seats("VVIPs",i))
+            }
+        }
+    }
+
+    get availseats(){
+        return this._availseats;
+    }
+}
+// let pf1= new seatsfloors(0,3);
+//      console.log(pf1)
+
+
+
+//lotfloor
+
+class lotfloor{
+    constructor(number){
+      this._floors=[];
+      this._numberoffloor=number;
+
+      for(let i=0;i<number;i++){
+          this._floors[i]=new seatsfloors(i,number);
+      }
+    }
+
+    get numberoffloor(){
+        return this._numberoffloor;
+    }
+
+    get floors(){
+        return this._floors;
+    }
+
+    set floors(value){
+        this._floors=value;
+    }
+
+    setsaudiance(audiance){
+        let seats= this.findlot(audiance.type)
+
+        if(!seats){
+            console.log("No seat");
+            return false
+        }
+        this.bookseats(seats);
+        let ticket=new Ticket(seats.floorno,seats.seats.number)
+        console.log("ticket issue: ",ticket)
+    }
+
+    findlot(type){
+
+        for(let i=0;i<this._numberoffloor;i++){
+
+            for(let seats of this._floors[i].availseats){
+
+                if(seats.type===type && !seats._isbooked){
+                    return {floorno:i,seats:seats};
+                }
+            }
+        }
+        return false;
+    }
+    bookseats(seats){
+        seats.seats.isbooked=true;
+        console.log("seat is booked: ",seats);
+        return true;
+    }
+}
+
+class Ticket {
+    constructor(floornumber,seatno){
+        
+        this.floornumber=floornumber;
+        this.seatno=seatno;
+        this.issueAt=new Date();
+    }
+}
+
+let p1=new lotfloor(3);
+let b1 = new VVIPs (24,"male")
+p1.setsaudiance(b1);
+
+
+
+</script>

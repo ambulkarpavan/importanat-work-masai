@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #product{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="counter">
+
+    </div>
+
+   <div id="product">
+
+   </div>
+    
+</body>
+</html>
+<script>
+           
+          var productdata=JSON.parse(localStorage.getItem("Products")) || []
+          console.log(productdata);
+
+          var length=productdata.length;
+
+          document.querySelector("#counter").innerText = `Total items ${length}` 
+
+          productdata.map(function(ele,i){
+
+            var box=document.createElement("div");
+
+        let  name=document.createElement("p");
+              name.innerText= "Product_name :"+" "+ele.name;
+        let  catagory=document.createElement("p");
+            catagory.innerText= "Category :"+" "+ele.catagory
+        let  image=document.createElement("img");
+             image.src= ele.image;
+        let  price=document.createElement("p");
+                 price.innerText= "price :"+" "+"Rs "+ele.price
+        let  gender=document.createElement("p");
+              gender.innerText= "Gender :"+" "+ele.gender
+        let  sold=document.createElement("p");
+        sold.innerText="Sold :"+" "+ele.sold;
+
+        let button=document.createElement("button")
+          button.innerText="Remove";
+          button.addEventListener("click",function(){
+                    removeele(ele,i)
+          })
+          let soldbutton=document.createElement("button")
+          soldbutton.innerText="Sold";
+          soldbutton.style.color="white";
+          soldbutton.style.marginLeft="20px"
+          if(ele.sold==true){
+              soldbutton.style.backgroundColor="red"
+          }
+          else{
+            soldbutton.style.backgroundColor="green"
+          }
+          soldbutton.addEventListener("click",function(){
+                    soldele(ele)
+          })
+
+           box.append( image,name,catagory,price,gender,sold,button,soldbutton);
+
+           document.querySelector("#product").append(box);
+        })
+
+        function removeele(ele,i){
+
+            productdata.splice(i,1);
+            localStorage.setItem("Products",JSON.stringify(productdata));
+            window.location.reload();
+            console.log(productdata)
+        }
+
+        function soldele(ele){
+
+            if(ele.sold==true){
+                
+                ele.sold=false;
+            }
+            else{
+                ele.sold=true
+            }
+          
+            localStorage.setItem("Products",JSON.stringify(productdata));
+            window.location.reload();
+            console.log(productdata)
+            }
+
+</script>

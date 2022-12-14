@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>drop down menu</title>
+    <link rel="stylesheet" href="./styles/homepage sigin dropdown.css">
+    <style>
+        /* travller div style start */
+        #travellers_div {
+            border: 1px solid black;
+            width: 10%;
+            margin-top: 20px;
+            
+
+        }
+
+        #travellers_display {
+            width: 20%;
+            /* border: 1px solid black; */
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+            padding: 10px;
+        
+        }
+
+        #counter_travellers {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        #counter {
+            display: flex;
+            justify-content: space-evenly;
+            width: 50%;
+
+        }
+
+        #add_travellers,
+        #remove_travellers {
+            border-radius: 50%;
+            border: 1px solid black;
+            width: 20px;
+            text-align: center;
+            padding: 2px;
+            cursor: pointer;
+        }
+
+        #count_doneButton {
+            width: 100%;
+            color: white;
+            background-color: #3763d8;
+            padding: 10px 0px 10px 0px;
+            border: none;
+            margin-top: 10px;
+            border-radius: 10px;
+
+        }
+        #dummy
+        {
+            width: 90%;
+            border: 1px solid red;
+            margin: auto;
+            height: 50px;
+          
+        }
+    </style>
+</head>
+
+<body>
+    <div id="navbar">
+        <div>home</div>
+        <div id="signin">sigin</div>
+
+    </div>
+
+    <div id="display_siginDropdown">
+    </div>
+
+
+    <div id="travellers_div">
+        <div>1 Room</div>
+        <div id="no_of_travellers">1 Traveller</div>
+    </div>
+
+<div id="dummy">
+
+</div>
+
+
+    <div id="travellers_display">
+        <h2 id="">Travellers</h2>
+        <p>Room 1</p>
+
+
+        <div id="counter_travellers">
+            <div>Adults</div>
+            <div id="counter">
+                <div id="add_travellers">+</div>
+                <div id="display_count">1</div>
+                <div id="remove_travellers">-</div>
+            </div>
+        </div>
+
+        <button id="count_doneButton">Done</button>
+    </div>
+
+</body>
+
+</html>
+<script type="module">
+    import { homePageSiginDropdown } from "./homepage sigin dropdown.js"
+
+  
+//   traveller js code start
+    let displayTravellers = document.getElementById("travellers_display")
+
+    displayTravellers.style.display = "none"
+    function displayTravellersFunction() {
+       
+
+        if (displayTravellers.style.display === "none") {
+
+            document.getElementById("add_travellers").addEventListener("click", counterAddFunction)
+
+            document.getElementById("remove_travellers").addEventListener("click", counterRemoveFunction)
+
+            displayTravellers.style.display = "block"
+
+            let displayCount = document.getElementById("display_count")
+
+            let i = 1
+
+            function counterAddFunction() {
+                i = i + 1
+                displayCount.innerText = i
+                document.getElementById("no_of_travellers").innerText = `${i} Travellers`
+
+            }
+
+            function counterRemoveFunction() {
+                i = i - 1
+                displayCount.innerText = i
+                document.getElementById("no_of_travellers").innerText = `${i} Travellers`
+
+            }
+     
+        }
+        else {
+       
+            displayTravellers.style.display = "none"
+        }
+ 
+
+    }
+    document.getElementById("travellers_div").addEventListener("click", displayTravellersFunction)
+
+//   traveller js code end
+
+
+
+
+    const displayDropdown = document.getElementById("display_siginDropdown")
+    displayDropdown.style.display = "none"
+    let hideAndDisplayFunction = () => {
+        // displayDropdown.innerHTML = null
+        // displayDropdown.style.padding = "20px"
+
+        if (displayDropdown.style.display == "none") {
+            displayDropdown.style.padding = "20px"
+            displayDropdown.innerHTML = homePageSiginDropdown()
+            displayDropdown.style.display = "block"
+
+        }
+        else {
+
+            displayDropdown.style.display = "none"
+
+        }
+
+    }
+
+    document.getElementById("signin").addEventListener("click", hideAndDisplayFunction)
+
+
+
+
+
+</script>
+
+
+
+
+
+<!-- //for passwoord length weak/strong -->
+<!-- <!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>for password length strong/weak</title>
+//     <link type="image/x-icon" href="/favicon.ico" sizes="16x16 32x32" rel="shortcut icon">
+//     <link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+   
+//     CSS Styling
+//     <style>
+//         .passwordInput{
+//             margin-top: 5%; 
+//             text-align :center;
+//         }
+
+//         .displayBadge{
+//             margin-top: 5%; 
+//             display: none; 
+//             text-align :center;
+//         }
+//     </style>
+// </head>
+// <body>
+//     <div class="d-flex text-danger justify-content-center">
+//         <h4 style="margin-top: 10%; text-align :center">
+//             Password Strength Checker
+//         </h4>
+//         <br>
+//         <input type="password" placeholder="Type your password" id="id_password" class="form-control passwordInput">
+//         <br>
+     
+//         <br>
+//     </div>  
+//     <div>
+//         <span id="StrengthDisp" class="badge displayBadge">Weak</span>
+//     </div>
+   
+// </body>
+// </html>
+// <script> -->
+<!-- // timeout before a callback is called
+
+// // let timeout;
+
+// // traversing the DOM and getting the input and span using their IDs
+
+// // let password = document.getElementById('id_password')
+// // let strengthBadge = document.getElementById('StrengthDisp')
+
+// // The strong and weak password Regex pattern checker
+
+// // let strongPassword = new RegExp('(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{8,})')
+// // let mediumPassword = new
+// RegExp('((?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^A-Za-z0-9])(?=.{6,}))|((?=.*[a-z])(?=.*[A-Z])(?=.*[^A-Za-z0-9])(?=.{8,}))')
+
+// // function StrengthChecker(PasswordParameter){
+// We then change the badge's color and text based on the password strength
+
+// if(strongPassword.test(PasswordParameter)) {
+// strengthBadge.style.backgroundColor = "green"
+// strengthBadge.textContent = 'Strong'
+// } else if(mediumPassword.test(PasswordParameter)){
+// strengthBadge.style.backgroundColor = 'blue'
+// strengthBadge.textContent = 'Medium'
+// } else{
+// strengthBadge.style.backgroundColor = 'red'
+// strengthBadge.textContent = 'Weak'
+// }
+// }
+
+// Adding an input event listener when a user types to the password input
+
+// password.addEventListener("input", () => {
+
+//The badge is hidden by default, so we show it
+
+// strengthBadge.style.display= 'block'
+// clearTimeout(timeout);
+
+//We then call the StrengChecker function as a callback then pass the typed password to it
+
+// timeout = setTimeout(() => StrengthChecker(password.value), 500);
+
+//Incase a user clears the text, the badge is hidden again
+
+// if(password.value.length !== 0){
+// strengthBadge.style.display != 'block'
+// } else{
+// strengthBadge.style.display = 'none'
+// }
+// });
+// </script> -->
+
+
+
+
+
+
+
+
+
+
+<!-- //for alert box -->
+<!-- <!DOCTYPE html>
+// <html lang="en">
+
+// <head>
+//     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+//     <meta charset="UTF-8">
+//     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+//     <title>Create Account Dummy</title>
+//    <style>
+//         #confirm {
+//             display: none;
+//             background-color: white;
+//             color: #000000;
+//             border: 1px solid #aaa;
+//             position: fixed;
+//             width: 300px;
+//             height: 100px;
+//             left: 50%;
+//             margin-left: -100px;
+//             padding: 10px 20px 10px;
+//             box-sizing: border-box;
+//             text-align: center;
+//             margin-top: -200px;
+//         }
+
+//         .yes {
+//             background-color: #FFFFFF;
+//             display: inline-block;
+//             border-radius: 12px;
+//             border: 1px solid black;
+//             padding: 5px;
+//             text-align: center;
+//             width: 60px;
+//             cursor: pointer;
+//         }
+
+//         #confirm .message {
+//             text-align: left;
+//         }
+
+//         .yes {
+//             margin-top: 20px;
+//         }
+
+//         #detailContainer {
+//             /* border: 1px solid black; */
+//             width: 400px;
+//             margin: auto;
+//             margin-top: 40px;
+//             color: #343b53;
+//         }
+
+//         #email,
+//         #name,
+//         #surname,
+//         #password,
+//         #id_password {
+//             width: 100%;
+//             padding: 15px 0px 15px 5px;
+//             border-radius: 10px;
+//             margin-bottom: 20px;
+//             font-size: 15px;
+//             border: 1px solid gray;
+//         }
+
+//         #chechbox1 {
+//             margin-top: 10px;
+//         }
+
+//         #checkbox2 {
+//             margin-top: 20px;
+//             margin-bottom: 20px;
+//             display: flex;
+//         }
+
+//         #tAndC {
+//             color:
+//                 #367be3;
+//         }
+
+//         #buttonCreateAccount {
+//             padding: 10px 167px 10px 167px;
+//             border-radius: 10px;
+//             color: white;
+//             background-color: #3662d8;
+//             font-size: 20px;
+//             border: none;
+//             cursor: pointer;
+//         }
+
+//         #SigninSpan {
+//             color:
+//                 #367be3;
+//         }
+
+//         #signinDiv {
+//             text-align: center;
+//         }
+
+//         #orContinue {
+//             text-align: center;
+//         }
+
+//         #logoDiv {
+//             margin: auto;
+//             display: flex;
+//             text-align: center;
+//             justify-content: space-evenly;
+//             /* border: 1px solid red; */
+//             width: 50%;
+//         }
+
+//         #logoDiv>div>img {
+//             /* width: 100%; */
+//             /* display: flex; */
+//             width: 20px;
+
+
+//         }
+
+//         #topLogo {
+//             border: 1px solid rgb(218, 207, 207);
+//             border-top: none;
+//             border-left: none;
+//             border-right: none;
+//             margin: auto;
+//             text-align: center;
+//             padding: -40px 0px -40px 0px;
+//         }
+
+//         #topLogo>img {
+//             height: 30px;
+//             /* width: 50px; */
+//         }
+//     </style>
+// </head>
+
+// <body>
+//     <div id="topLogo">
+
+//         <img src="https://www.expedia.co.in/_dms/interstitial/logo.svg?locale=en_GB&siteid=27" alt="">
+//     </div>
+
+//     <div id="detailContainer">
+//         <div>
+//             <h1>Create an account</h1>
+//         </div>
+
+//         <div>
+
+//             <input type="text" name="" id="email" placeholder="Email Adress">
+//         </div>
+
+//         <div>
+//             <input type="text" name="" id="name" placeholder="First Name">
+//         </div>
+
+//         <div>
+//             <input type="text" name="" id="surname" placeholder="Surname">
+//         </div>
+
+//         <div>
+//             <input type="password" name="password" autocomplete="current-password" required="" id="id_password"
+//                 placeholder="Password">
+//             <i class="far fa-eye" id="togglePassword" style="margin-left: -30px; cursor: pointer;"></i>
+//             <i></i>
+//         </div>
+
+//         <div>
+//             <input type="checkbox" name="" id=""><label for="">Keep me signed in</label>
+//             <div id="chechbox1">Selecting this checkbox will keep you signed into your account on this device until you
+//                 sign out. Do not select this on shared devices.</div>
+//         </div>
+
+//         <div id="checkbox2">
+//             <input type="checkbox" name="" id="">
+//             <div> I'd like to receive travel deals, special offers and other information from Expedia via email.</div>
+//         </div>
+//         <div>
+
+//             <p>
+
+//                 By creating an account,I agree to the Expedia<span id="tAndC"> Terms and Conditions, Privacy Statement
+//                     and Expedia Rewards Terms and Conditions.</span>
+//             </p>
+//         </div>
+
+//         <div>
+//             //alert box
+//             <div id="confirm">
+//                 <div class="message">You have Succefully Created Acoount</div>
+//                 <button class="yes">OK</button>
+//             </div>
+//             <button id="buttonCreateAccount" onclick="CreatAccountFunction();">Continue</button>
+//         </div>
+
+//         <div id="signinDiv">
+//             <p>Already have an account?<span id="SigninSpan">Sign in</span> </p>
+//         </div>
+//         <div id="orContinue">
+//             <p>or continue with</p>
+//         </div>
+//         <div id="logoDiv">
+//             <div>
+//                 <img src="https://a.travel-assets.com/egds/marks/apple.svg" alt="">
+//             </div>
+
+//             <div>
+//                 <img src="https://a.travel-assets.com/egds/marks/facebook.svg" alt="">
+//             </div>
+
+//             <div>
+
+//                 <img src="https://a.travel-assets.com/egds/marks/google.svg" alt="">
+//             </div>
+
+//         </div>
+
+//     </div>
+
+// </body>
+
+// </html>
+// <script>
+//     //for password eye
+//     const togglePassword = document.querySelector('#togglePassword');
+//     const password = document.querySelector('#id_password');
+
+//     togglePassword.addEventListener('click', function (e) {
+//         // toggle the type attribute
+//         const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+//         password.setAttribute('type', type);
+//         // toggle the eye slash icon
+//         this.classList.toggle('fa-eye-slash');
+//     });
+//     //eye end
+//     let userArr = JSON.parse(localStorage.getItem("userDetails")) || []
+//     function CreatAccountFunction(msg, myYes) {
+//         var confirmBox = $("#confirm");
+//         confirmBox.find(".message").text(msg);
+//         confirmBox.find(".yes").unbind().click(function () {
+//             confirmBox.hide();
+//         });
+//         confirmBox.find(".yes").click(myYes);
+//         confirmBox.show();
+
+//         let email = document.getElementById("email").value
+//         let name = document.getElementById("name").value
+//         let surname = document.getElementById("surname").value
+//         let passwoord = document.getElementById("id_password").value
+
+//         let userObj =
+//         {
+//             Email: email,
+//             Name: name,
+//             Surname: surname,
+//             Password: passwoord
+//         }
+//         userArr.push(userObj)
+//         console.log(userObj)
+//         localStorage.setItem("userDetails", JSON.stringify(userArr))
+
+//     }
+// </script> -->

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+<body>
+    <div id="products_container">
+        <div id="outermost_left">
+            <div id="outer_up">
+                <div id="location_input_div">
+                    <input id="location_input" placeholder="enter location">
+                    <div id="location_suggestion_div"></div>
+                </div>
+                <!-- <input id="location_input" placeholder="enter location"> -->
+                <input id="start_date" type="date" min="2022-05-04" required>
+                <input id="end_date" type="date" min="2022-05-05" required>
+                <button id="Product_search_button" onclick="searchHotel()">Search</button>
+            </div>
+
+
+            <div id="outer_down">
+                <div id="outer_down_left_big">
+                    <div id="products_map">
+
+                        <div class="gmap_canvas">
+                            <iframe 
+                               
+                                id="gmap_canvas" 
+                                frameborder="0" 
+                                scrolling="no" 
+                                marginheight="0" 
+                                marginwidth="0">
+                            </iframe>
+
+                        
+                        </div>
+                        <!--  width="600" 
+                        height="500"  -->
+                    </div>
+                    <!-- <div id="products_searchByProperty"></div> -->
+                    <div id="products_filter_div">
+                        <h2>Filter By</h2>
+                        <h4>Star Ratings</h4>
+ 
+                       <label for="starRating1"><input type="radio" id="starRating1" name="star" value="1"> 1 Star</label><br><br>
+                       <label for="starRating2"><input type="radio" id="starRating2" name="star" value="2"> 2 Star</label><br><br>
+                       <label for="starRating3"><input type="radio" id="starRating3" name="star" value="3" checked> 3 Star</label><br><br>
+                       <label for="starRating4"><input type="radio" id="starRating4" name="star" value="4"> 4 Star</label><br><br>
+                       <label for="starRating5"><input type="radio" id="starRating5" name="star" value="5"> 5 Star</label><br><br>
+               
+                    </div>
+                </div>
+                <div id="outer_down_right_big">
+                    <div id="totalProp_and_sort_div">
+                        <div id="noOfPropertiesDiv"></div>
+                        <div id="sortProductsDiv">
+                            <lable for="sortID">Sort By</lable>
+                            <select name="sort" id="sortID">
+                                <option selected value="PRICE">Price (Low to High)</option>
+                                <option value="PRICE_HIGHEST_FIRST">Price (High to Low)</option>
+                                <option value="STAR_RATING_HIGHEST_FIRST">Ratings</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div id="products_append_div"></div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div id="outermost_right">
+            <img src="https://tpc.googlesyndication.com/simgad/17447823249981941085?" alt="photo">
+        </div>
+    </div>
+</body>
+</html>
+<script src="products.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+

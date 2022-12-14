@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #show_videos{
+    display: grid;
+     grid-template-columns: repeat(4,20%);
+     gap: 5%;
+
+        }
+
+    </style>
+</head>
+<body>
+    <h1>You Tube</h1>
+    <input type="text" id="query">
+    <button onclick="searchvideos()">Search</button>
+
+    <div id="show_videos"></div>
+</body>
+</html>
+<script>
+
+    // https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&q=kgf%202&key=[YOUR_API_KEY] 
+
+const api="AIzaSyDhbR1ENwvGWJzn5fOB7DYYREA22-HlKOE"
+
+
+
+const url=
+    `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=30&key=${api}`
+    
+    
+    
+    fetch(url)
+     .then(function(res){
+         //console.log(res)
+        
+         return res.json();
+     })
+     .then(function(res){
+       append(res.items);
+          console.log(res.items);
+          
+        
+     })
+     .catch(function(err){
+     
+         console.log(err);
+     });
+
+const append = (videos) => {
+
+    let show_videos=document.getElementById("show_videos");
+    
+    show_videos.innerHTML=null;
+
+    videos.forEach(({id:{videoId},snippet:{title}})=>{
+ 
+    let div=document.createElement("div");
+
+    let iframe=document.createElement("iframe")
+   iframe.src = `https://www.youtube.com/embed/${videoId}`
+   iframe.width= "100%";
+   iframe.height= "70%";
+   iframe.allow="fullscreen";
+
+   let name= document.createElement("h5")
+   name.innerText=title;
+
+   div.append(iframe,name);
+
+   let data={
+       title,
+       videoId
+   };
+
+   div.onclick = ()=>{
+    showvideos(data)
+   }
+
+
+   show_videos.append(div);
+
+});
+};
+
+ const showvideos = (x) =>{
+     window.location.href="video.html";
+
+     localStorage.setItem("video",JSON.stringify(x))
+ }
+</script>
+
+
+
+<!-- /////// html -->
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       #show #show_videos{
+    display: grid;
+     grid-template-columns: repeat(4,1fr);
+     gap: 2%;
+     width: 80%;
+     border: 1px solid;
+
+        }
+        #box1{
+            border: 1px solid;
+            display: flex;
+            
+        }
+        #box1 >div{
+            border: 1px solid red;
+            width: 33%;
+            display: flex;
+        }
+
+        #show{
+            display: flex;
+            border: 1px solid;
+        }
+        #show #show1{
+            width: 15%;
+            border: 5px soild red;
+        }
+        #show1 p{
+            padding-left: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="box1">
+      
+        <div> <h2>You Tube</h2></div>
+        <div>
+           
+        </div>
+        <div></div>
+  
+    </div>
+    <div id="box2"> </div>
+   
+    <input type="text" id="query"> 
+    <button onclick="searchvideos()">Search</button>
+
+    <div id="show">
+        <div id="show1">
+            <p>Home</p>
+            <p>Explore</p>
+            <p>Shorts</p>
+            <p>Subscription</p>
+            <hr>
+            <p>Library</p>
+            <p>History</p>
+            <p>Your Videos</p>
+            <p>Watch Later</p>
+            <p>Liked Videos</p>
+            <p>Show More</p>
+            <hr>
+        </div>
+        
+    </div>
+    <div id="show_videos"></div>
+    
+</body>
+</html>
+<script src="index.js"></script>
+ -->
+
+
+
+<!-- <iframe width="560"
+     height="315"
+     src="https://www.youtube.com/embed/bI2lgDA-X0k"
+      title="YouTube video player" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->

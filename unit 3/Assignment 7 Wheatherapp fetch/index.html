@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        #box{
+            display: flex;
+            border: 1px solid;
+        }
+
+
+        #new{
+            display: flex;
+            width: 80%;
+           
+            justify-content: space-between;
+        }
+       
+        #container{
+            padding: 20px;
+            box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        }
+       
+        .mapouter{
+            position:relative;
+            text-align:center;
+            height:500px;
+            width:600px;
+           background-color: white;
+           padding: 20px;
+           height: 400px;
+
+           
+        }
+        #city{
+            margin-top: 20px;
+        }
+        #submit{
+           background-color:#27ae60 ; 
+           border: 0px;
+           border-radius: 5px;
+        }
+        #box2{
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+        }
+        
+    </style>
+</head>
+<body> 
+         <div id="box">
+             <div id="box1">
+                <button onclick="getwhether()">Get wheather by location</button><br>
+
+                <input type="text"  id="city" placeholder="Enter City Name">
+                <button id="submit" onclick="getdata()">submit</button>
+             </div>
+             <div id="box2">
+
+             </div>
+         </div>
+ 
+  
+
+    <div id="new">
+
+        <div id="container"> 
+           
+
+        </div>
+
+        <div class="mapouter">
+            <div class="gmap_canvas">
+            <iframe
+             width="500"
+              height="400" 
+              id="gmap_canvas"
+            frameborder="0" 
+            scrolling="no"
+             marginheight="0"
+              marginwidth="0"
+              ></iframe>
+           </div>
+           </div> 
+
+    </div>
+  
+  
+
+    
+         
+</body>
+</html>
+<script src="index.js"></script>

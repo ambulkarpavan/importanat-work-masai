@@ -1,0 +1,147 @@
+#products_container{
+    width:90%;
+    height:900px;
+    margin: auto;
+    display: flex;
+    padding: 20px;
+    background-color: antiquewhite;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+
+#outermost_left{
+    padding:20px;
+    background-color: blue;
+    height:900px;
+    width: 80%;
+    margin: auto;
+}
+#outermost_right{
+    padding:20px;
+    background-color:rgb(215, 57, 36) ;
+    height:900px;
+    width: 20%;
+    margin: auto;
+}
+
+#outer_up{
+    display: flex;
+    padding:20px;
+    background-color:rgb(130, 223, 223) ;
+    height:200px;
+    width: 80%;
+    margin: auto;
+   
+}
+#location_suggestion_div{
+    display: none;
+    padding:10px;
+    height: 200px;
+    background-color:white;
+    overflow: auto;
+}
+#gmap_canvas{
+    height: 100%;
+    width: 100%;
+}
+#start_date{
+    height:20px;
+}
+#end_date{
+    height:20px;
+}
+#Product_search_button{
+    height:20px;
+}
+/* #location_input_div{
+    display: flex;
+} */
+
+#outer_down{
+    display: flex;
+    padding:20px;
+    background-color:rgb(46, 128, 128) ;
+    height:650px;
+    width: 80%;
+    margin: auto;
+}
+
+#outer_down_left_big{
+    padding:10px;
+    background-color:rgb(233, 60, 175);
+    height:600px;
+    width: 30%;
+    margin: auto;
+}
+
+#products_map{
+    background-color:rgb(68, 41, 8);
+    height:200px;
+    width: 80%;
+    margin: auto;
+}
+
+#products_searchByProperty{
+    background-color:rgb(88, 87, 85);
+    height:200px;
+    width: 80%;
+    margin: auto;
+}
+
+#products_filter_div{
+    background-color:rgb(199, 235, 99);
+    height:200px;
+    width: 80%;
+    margin: auto;
+}
+
+#outer_down_right_big{
+    padding:10px;
+    background-color:rgb(203, 124, 26);
+    height:600px;
+    width: 70%;
+    margin: auto;
+}
+
+#totalProp_and_sort_div{
+    display: flex;
+    padding:10px;
+    background-color:rgb(38, 203, 26);
+    height:150px;
+    width: 80%;
+    margin: auto;
+}
+#noOfPropertiesDiv{
+    padding:10px;
+    background-color:rgb(99, 120, 98);
+    height:80%;
+    width: 40%;
+    margin: auto;
+}
+#sortProductsDiv{
+    padding:10px;
+    background-color:rgb(204, 35, 35);
+    height:80%;
+    width: 40%;
+    margin: auto;
+}
+/* #sortID{
+    appearance: none;
+} */
+
+#products_append_div{
+    padding:10px;
+    background-color:rgb(18, 66, 14);
+    height:400px;
+    width: 80%;
+    margin: auto;
+}
+
+.individualProductDiv{
+    display:flex;
+
+}
+.individualProductDescDiv{
+    display:flex;
+
+}

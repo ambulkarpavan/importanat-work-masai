@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Family tree
+</body>
+</html>
+
+<script>
+    
+class grandfather{
+    constructor(n){
+    this.surname=n;
+    this.cast="gurav";
+    this.hometown="dhanora";
+}
+}
+
+class father extends grandfather{
+    constructor(n){
+        super(n);
+        this.father_name="gopal";
+    }
+}
+class me extends father{
+    constructor(n){
+        super(n);
+        this.my_name="pavan";
+    }
+}
+
+
+
+
+let f1=new me("Ambulkar")
+console.log(f1)
+</script>

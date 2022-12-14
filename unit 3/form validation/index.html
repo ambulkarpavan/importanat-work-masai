@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/index.css">
+</head>
+<style>
+    /* *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+    #form_container{
+        width: 30%;
+        margin: auto;
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+        align-items: center;
+        justify-content: center;
+        padding: 50px ;
+        margin-top: 100px;
+       
+    }
+    #form_container input{
+        padding: 8px ;
+        font-size: 16px;
+        margin-bottom: 20px;
+        margin-top: 10px;
+        border-radius: 5px;
+    }
+    #submitbtn{
+        background-color: skyblue;
+
+    } */
+
+</style>
+<body>
+    <div id="form_container">
+        <form onsubmit="handleSubmit()">
+            <h1>Registration Form</h1>
+            <br>
+            <label > <h2>Name:</h2></label>
+            <input id="name" type="text" placeholder="Enter name" >
+         
+            <label > <h2>Email:</h2></label>
+            <input id="email" type="email" placeholder="Enter email" >
+           
+            <label > <h2>Password:</h2></label>
+            <input id="password" type="password" placeholder="Enter password" >
+            <br>
+           
+            <input id="submitbtn" type="submit">
+        </form>
+    </div>
+</body>
+<script src="./scripts/index.js"></script>
+</html>
+
+<!-- <script>
+    document.querySelector("form").addEventListener("submit", handleSubmit);
+
+    var arr =[]
+    function handleSubmit(){
+        event.preventDefault()
+      var obj = {
+        name : document.querySelector("#name").value,
+        email : document.querySelector("#email").value ,
+        password: document.querySelector("#password").value
+      }
+       let emailval = obj.email;
+       for(let i=0; i<emailval.length; i++){
+       if(emailval[i] === "@" && emailval[i+1] === "."){
+        alert("Domain can not start with dot[.]")
+       }
+       }
+      console.log(obj.email);
+      arr.push(obj)
+      console.log(arr);
+
+    
+    }
+</script> -->

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: flex;
+            border: 1px solid;
+        }
+        #input, #output{
+            flex: 1;
+            margin: 5%;
+            height: 300px;
+            border: 1px solid;
+        }
+
+        #input-text{
+            width: 90%;
+            height: 250px;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <div id="container">
+        <div id="input">
+
+            <select name="inp_lang" id="inp_lang">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+            </select>
+
+            <!-- debouncing -->
+            <textarea name="input-text" oninput="debounce(main,1000)" id="input-text" ></textarea>   
+
+
+        </div>
+        <div id="output">
+            <select name="out_lang" id="out_lang">
+                <option value="en">English</option>
+                <option value="hi">Hindi</option>
+            </select>
+            <div  id="output_value"></div>
+          
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+ function read(id){
+        return document.getElementById(id).value;
+    }
+    let id;
+
+ async function Translate(){
+
+
+    // 1. text to translate
+
+   // let input = document.getElementById("input-text").value;
+
+  try{
+   const input= read("input-text"); //it is same as document.getElementById 
+   console.log(input);
+   
+   const input_lang=read("inp_lang")
+
+   const out_lang=read("out_lang")
+
+  
+//POST Request
+
+   const res= await fetch("https://libretranslate.de/translate",{    //change .com to .de
+       method:"POST", // we need to give input to server & then serve respond translate value
+
+       body: JSON.stringify({
+           q:input,
+           source:input_lang,
+           target:out_lang,
+           format:"text",
+       }),
+
+       //additional information about our request that serve might need to know
+        headers:{
+            "Content-Type": "application/json",
+        },
+   
+    });
+
+  
+
+   const data = await res.json();  // take translated value from server
+
+ 
+   console.log(data)
+   return data;
+  }
+  catch(err){
+      console.log(err)
+  }
+
+}
+
+
+// add debouncing
+
+
+function append(data){
+    document.getElementById("output_value").innerHTML=null;
+    let name=document.createElement("p")
+    name.innerText=data.translatedText
+
+document.getElementById("output_value").append(name)
+
+}
+
+async function main(){
+    let data= await Translate();
+
+   //optimisation #1
+   if(data===undefined){
+        return false;
+    }
+
+    append(data)
+
+}
+
+function debounce(func,delay){
+   
+    if(id){
+        clearTimeout(id);
+    }
+    id= setTimeout(function(){
+        func()
+    },delay);
+
+
+}
+
+
+</script>

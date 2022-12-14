@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Encapsulation
+</body>
+</html>
+
+<script>
+
+
+    class userdata{
+        constructor(){
+            var name;
+            var id;
+        }
+
+        getName(){
+            return this.name;
+        }
+        setName(value){
+            this.name=value;
+        }
+        getid(){
+            return this.id;
+        }
+        setid(value){
+            this.id=value;
+        }
+    }
+
+    let u1=new userdata();
+    u1.setName("pavan");
+    console.log(u1.getName())
+
+    u1.setid("fw17_0882");
+    console.log(u1.getid())
+    
+
+</script>

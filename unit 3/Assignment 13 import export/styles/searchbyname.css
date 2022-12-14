@@ -1,0 +1,13 @@
+#search{
+    width: 60%;
+margin: 40px 150px;
+padding: 20px;
+border-radius: 20px;
+}
+
+#btn{
+    margin: 40px 400px;
+padding: 10px 50px;
+border-radius: 10px;
+cursor: pointer;
+}

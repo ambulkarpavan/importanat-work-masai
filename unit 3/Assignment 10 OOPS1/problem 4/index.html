@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Polymorphism
+</body>
+</html>
+
+<script>
+
+    class cat{
+        hunt(){
+            console.log("cat hunts deer")
+        }
+    }
+    class lion extends cat{
+       
+    }
+    class chetta extends cat{
+        hunt(){
+            console.log("chetta hunts deer")
+        }
+    }
+
+    let a1=new cat();
+    let a2=new lion();
+    let a3=new chetta();
+
+    a2.hunt()
+</script>
