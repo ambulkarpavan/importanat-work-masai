@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masai Calculator</title>
+    <style>
+      h1 {
+        text-align: center;
+        font-size: 60px;
+        color: teal;
+      }
+      #calculator{
+        height: 500px;
+        width: 400px;
+       
+        margin: auto;
+        margin-top: 80px;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 10px;
+        padding: 40px;
+
+      }
+      #input{
+        height: 15%;
+        width: 90%;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        margin: auto;
+        border-radius: 5px;
+        
+      }
+      #keyboard{
+        width: 90%;
+        margin-top: auto;
+        height: 90%;
+        
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 80px);
+        grid-gap: 10px;
+        margin-top: 20px;
+      }
+      #keyboard>div{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, 
+        rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        font-size: 25px;
+      }
+      .box{
+        background-color: black;
+        color: white;
+      }
+      #new{
+        background-color: red;
+        color: white;
+
+      }
+      #input{
+          font-size: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+      }
+
+      /* use grid to acheive the layout */
+    </style>
+  </head>
+  <body>
+    <h1>Masai Calculator</h1>
+    <div id="calculator">
+      <div id="input"></div>
+      <div id="keyboard">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div class="box">+</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div class="box">-</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div class="box">*</div>
+        <div id="new">C</div>
+        <div>0</div>
+        <div class="box">=</div>
+        <div class="box">/</div>
+      </div>
+    </div>
+  </body>
+</html>
+<script>
+     var no=document.querySelectorAll("#keyboard>div");
+     var bag=document.querySelector("#input");
+     for(var i=0;i<no.length;i++){
+         no[i].addEventListener("click",myno);
+     }
+     function myno(){
+         var targetno = event.target.innerText;
+         switch(targetno){
+             case "C":
+             bag.innerText = "";
+             break;
+             case "=":
+             bag.innerText=eval( bag.innerText);
+             break;
+            default :
+             bag.innerText += targetno; 
+
+         }
+     }
+
+</script>

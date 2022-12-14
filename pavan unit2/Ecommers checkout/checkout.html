@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Checkout Page</h1>
+    <form >
+        <input type="Number" placeholder="Enter card no." id="num"/>
+        
+        <input type="number" placeholder="CVV" id="cvv"/>
+        <input type="text" placeholder="Expiary date" id="date">
+        
+        <input type="text" placeholder="Card holder name " id="name">
+
+        <input type="submit">
+
+    </form>
+</body>
+</html>
+<script>
+        document.querySelector("form").addEventListener("submit",payment)
+        
+        var payarr=JSON.parse(localStorage.getItem("pay"))||[]
+        
+        
+        function payment(){
+            event.preventDefault();
+           var payobj={ 
+         num:document.querySelector("#num").value,
+             cvv:document.querySelector("#cvv").value,
+             date:document.querySelector("#date").value,
+             name:document.querySelector("#name").value
+           }
+           payarr.push(payobj);
+           console.log(payarr)
+           localStorage.setItem("pay", JSON.stringify(payarr))
+        }
+      
+
+</script>

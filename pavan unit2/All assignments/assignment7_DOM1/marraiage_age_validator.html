@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+    <input id="year" type="Number" placeholder="year of birth" value="" >
+    <button onclick="checkAge()">Check Eligibility</button>
+
+</body>
+</html>
+<script>
+function checkAge(){
+   var dob=document.getElementById("gender").value
+   var year=document.getElementById("year").value
+   var age=2022-year;
+   console.log(age);
+       if(age>=21 && dob=="male" || age>=21 && dob=="female" ){
+           alert( "valid age to marraiage");
+       }
+       else{
+        alert( " not valid age to marraiage");
+       }
+     
+} 
+   
+
+
+
+</script> 

@@ -1,0 +1,282 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pears</title>
+</head>
+<style>
+    body{
+        background-color: 
+            #f3f3f3;
+    }
+    h1{
+        text-align: center;
+    }
+    .upperbox{
+        margin-left: 80px;
+    }
+    h2{
+        text-align: center;
+    }
+    #maindiv{
+        display: flex;
+    }
+    #container{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        margin-left: 110px;
+        margin-right: 125px;
+        gap: 20px;
+    }
+    #container>div{
+        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    }
+    #container>div>img{
+        margin-left: 30px;
+    }
+    #container>div>h4{
+        text-align: center;
+    }
+    #container>div>p{
+        text-align: center;
+    }
+    #container>div>button{
+        border: none;
+        border-radius: 10px;
+        height: 50px;
+        width: 200px;
+        background-color: palevioletred;
+        color: white;
+        font-weight: bolder;
+        margin-left: 35px;
+        margin-right: 20px;
+
+    }
+    #container>div:hover{
+        cursor: pointer;
+    }
+    #container>div>button:hover{
+        cursor: pointer;
+    }
+    .row{
+        display: flex;
+        flex-direction: column;
+    }
+    select{
+        border: none;
+        width: 200px;
+        height: 50px;
+        margin-left: 20px;
+        background-color: white;
+        font-weight: bold;
+        vertical-align: bottom;
+    }
+</style>
+<body>
+    <a href="cart.html"><button>cart</button></a>
+    <h1>Stock Up on Bathing Essentials!</h1>
+    <div class="upperbox">
+        <img src="https://images-static.nykaa.com/uploads/6470ae1e-9d8b-4a60-ba1c-2af932aea5bf.jpeg?tr=w-1200,cm-pad_resize" alt="">
+    </div>
+    <h2>ALL Products</h2>
+  
+   <div id="maindiv">
+    <div class="row">
+        <select  id="selected" onchange="handlepri()" >
+            <option value="">Sort by Price</option>
+            <option value="lth">Low to High</option>
+            <option value="htl">High to Low</option>
+        </select>
+        <select  id="selected1" onchange="handlerate()" >
+            <option value="">Sort by Rating</option>
+            <option value="lth">Low to High</option>
+            <option value="htl">High to Low</option>
+        </select>
+        <select>
+            <option value="">Catogary</option>
+        </select>
+        <select>
+            <option value="">Brand</option>
+        </select>
+        <select>
+            <option value="">Fragrance Family</option>
+        </select>
+        <select>
+            <option value="">Discount</option>
+        </select>
+        <select>
+            <option value="">Concious</option>
+        </select>
+        <select>
+            <option value="">Prefrence</option>
+        </select>
+        <select>
+            <option value="">Gender</option>
+        </select>
+        <select>
+            <option value="">Formulation</option>
+        </select>
+        <select>
+            <option value="">Skin Type</option>
+        </select>
+        <select>
+            <option value="">Concern</option>
+        </select>
+       </div>
+       <div id="container"></div>
+   </div>
+  
+</body>
+</html>
+<script>
+
+    window.addEventListener("load",function(){
+        displaydata(skinarr);
+    })
+
+    function handlepri(){
+        var selected = document.querySelector("#selected").value
+        if(selected=="lth"){
+        skinarr.sort(function(a,b){
+        return a.price-b.price
+        });
+        displaydata(skinarr);
+        }
+        if(selected=="htl"){
+            skinarr.sort(function(a,b){
+                return b.price-a.price
+            });
+            displaydata(skinarr);
+        }
+    }
+    function handlerate(){
+        var selected = document.querySelector("#selected1").value
+        if(selected=="lth"){
+            pearsdata.sort(function(a,b){
+                return a.rating-b.rating
+            });
+            displaydata(pearsdata);
+        }
+        if(selected=="htl"){
+            pearsdata.sort(function(a,b){
+                return b.rating-a.rating
+            });
+            displaydata(pearsdata);
+        }
+    }
+  
+    
+var skinarr=[
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/5/e/5e1500ajusth00000011_1.jpg",
+name:"Just Herbs Ayurvedic Matte Lipstick Micro-Mini Trial Kit",
+price:"599",
+rating:"4.7"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/e/3/e3ee0538906107052923_2.jpg",
+name:"Just Herbs Vegan Matte Liquid Lipstick",
+price:"450",
+rating:"5"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/b/6/b6474828906107052831_1.jpg",
+name:"Just Herbs Compact Powder Long lasting Mattifying &",
+price:"330",
+rating:"4"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/d/b/dbb8606nyjusthrb0011_new1.jpeg",
+name:"Just Herbs Ayurvedic Kumuda Hair Fall & Hair Volumizing Cond...",
+price:"230",
+rating:"4.5"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/2/1/21f7329QUENC00000058.jpg",
+name:"Quench Botanics Mon Cherry Overnight Peeling Mask With",
+price:"300",
+rating:"3.6"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/8/9/89ad329QUENC00000039.jpg",
+name:"Quench Botanics Mama Cica Rejuvenating Face Mist With Mon Ch...",
+price:"499",
+rating:"3.7"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/e/d/ed6fded8904320722395_1.jpg",
+name:"Quench Botanics Mon Cherry Ultra Light Moisturizing Gel",
+price:"170",
+rating:"4.8"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/b/d/bdc5ded8904320717568_1.jpg",
+name:"Quench Botanics Bravocado Intense Brightening Serum",
+price:"300",
+rating:"3.3"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/2/0/20a8e0fOLAYX00000075.jpg",
+name:"Olay Luminous Vitamin C Super Serum With 99% Pure",
+price:"999",
+rating:"4.5"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/8/a/8a3d10aesl_anrsmrcog_1.jpg",
+name:"Estee Lauder Advanced Night Repair Synchronized Multi-",
+price:"680",
+rating:"4.8"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/4/6/461459e8906087772279_1.jpg",
+name:"Mamaearth Skin Illuminate Face Serum With Vitamin C & Turmer...",
+price:"499 ",
+rating:"3.9"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/9/5/95000c5LE50.jpg",
+name:"Just Herbs Ayurvedic Kumuda Hair Fall & Hair Volumizing C",
+price:"470",
+rating:"   4.9"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/9/f/9f1295e8906107050004_1.jpg",
+name:"Mamaearth Skin Illuminate Face Serum With Vitamin C & Turmer",
+price:"750",
+rating:"5"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/l/k/lkm_lsnsun.jpg",
+name:"Estee Lauder Advanced Night Repair Synchronized Multi-",
+price:"899",
+rating:"4"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/c/d/cd9f379nykmcf0000008_1_new.jpg",
+name:"Compact Powder Long lasting Mattifying",
+price:"630",
+rating:"4.1"},
+{image_Url:"https://images-static.nykaa.com/media/catalog/product/tr:w-200,h-200,cm-pad_resize/c/4/c4c1578nymcfn0000031_1rvm.jpg",
+name:"Mamaearth Skin Illuminate Face Serum With Vitamin C & Turmer",
+price:"1100",
+rating:"5"},
+{image_Url:"",
+name:"Estee Lauder Advanced Night Repair Synchronized Multi-",
+price:"",
+rating:""},
+
+
+]
+   var pearscart = JSON.parse(localStorage.getItem("data")) || [];
+  function displaydata(skinarr){
+      document.querySelector("#container").innerHTML = "";
+    skinarr.map(function(e){
+       var box = document.createElement("div");
+       var img = document.createElement("img");
+       img.src = e.image_Url;
+       var name = document.createElement("h4");
+       name.innerText = e.name;
+       var pri = document.createElement("p");
+       pri.innerText = "MRP"+": "+ e.price;
+       var rat = document.createElement("p");
+       rat.innerText = "Rating"+"-"+e.rating;
+       var btn = document.createElement("button");
+       btn.innerText = "Add to Bag";
+       btn.addEventListener("click",function(){
+           addtocart(e);
+       })
+       box.append(img,name,pri,rat,btn);
+       document.querySelector("#container").append(box);
+   });
+  }
+   function addtocart(e){
+        pearscart.push(e);
+        localStorage.setItem("data",JSON.stringify(pearscart));
+        alert("Item added to cart");
+        console.log(pearscart);
+   }
+</script>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      h1 {
+        text-align: center;
+        color: #f84364;
+        margin-bottom: 80px;
+      }
+      #container{
+        
+        width: 50%;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,150px);
+        gap: 30px;
+      }
+      #container>div{
+        border: 0.2px solid #fec4cc;
+        display: flex;
+       
+      }
+      img{
+        height: 150px;
+        width: 150px;
+      }
+      #container>div>div{
+        margin-left: 20px;
+      }
+      p{
+        font-weight: bold;
+      }
+      button{
+        background-color: #f84364;
+        border-radius: 10px;
+        padding: 10px 15px;
+        border: 0;
+        color: white;
+        
+      }
+
+      /* Medium screens */
+      @media only screen and (min-width: 421px) and (max-width: 780px) {
+       
+          img{
+            border-radius: 50%;
+           
+          }
+          #container>div{
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+          }
+          #container{
+            grid-template-rows: auto;
+           
+          }
+        
+      }
+      
+      /* small screens */
+      @media only screen and (min-width: 70px) and (max-width: 420px) {
+        img{
+            border-radius: 50%;
+           
+          }
+          #container>div{
+            flex-direction: column;
+            text-align: center;
+            padding: 20px;
+          }
+          #container{
+            grid-template-rows: auto;
+            grid-template-columns: repeat(1,1fr);
+          }
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!-- image link - 
+      https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg -->
+    <h1>Just movies</h1>
+    <div id="container">
+    <div>
+    <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+    <div> 
+      <h2>ET (2022)</h2>
+     <p>Releasing on 11 Mar,2022</p>
+     <button>Book Tickets</button>
+    </div>
+    </div>
+    <div>
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+      <div> 
+        <h2>ET (2022)</h2>
+       <p>Releasing on 11 Mar,2022</p>
+       <button>Book Tickets</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+      <div> 
+        <h2>ET (2022)</h2>
+       <p>Releasing on 11 Mar,2022</p>
+       <button>Book Tickets</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+      <div> 
+        <h2>ET (2022)</h2>
+       <p>Releasing on 11 Mar,2022</p>
+       <button>Book Tickets</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+      <div> 
+        <h2>ET (2022)</h2>
+       <p>Releasing on 11 Mar,2022</p>
+       <button>Book Tickets</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://assets-in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/radhe-shyam-et00135230-07-03-2022-04-16-56.jpg"/>
+      <div> 
+        <h2>ET (2022)</h2>
+       <p>Releasing on 11 Mar,2022</p>
+       <button>Book Tickets</button>
+      </div>
+    </div>
+
+    </div>
+  </body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #Navbar{
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            padding: 10px;
+        }
+        #Navbar a:hover{
+            color: white;
+        }
+        a{
+            text-decoration: none;
+            color: yellow;
+        }
+        #Navbar a{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="Navbar">
+        <div> <a href="men.html">Men</a> </div>
+        <div> <a href="Women.html">Women</a></div>
+        <div> <a href="signup.html">Signup</a></div>
+        <div> <a href="Login.html">Login</a></div>
+    </div>
+    <h1>Login Page</h1>
+    <form>
+        <input id="email" type="text" placeholder="Enter email" />
+        <input id="pass" type="password" placeholder="Enter password" />
+        <input type="submit" />
+      </form>
+</body>
+</html>
+<script>
+    document.querySelector("form").addEventListener("submit",loginfn)
+var signupdata=JSON.parse(localStorage.getItem("userdata"))
+console.log(signupdata);
+
+    function loginfn(){
+        event.preventDefault();
+        var enteremail=document.querySelector("#email").value
+        var enterpass=document.querySelector("#pass").value
+        
+        for(var i=0;i<signupdata.length;i++){
+            if(signupdata[i].email==enteremail && signupdata[i].pass==enterpass){
+                alert("Login Successful");
+                window.location.href="men.html";
+                break;
+              
+            }
+            else{
+               console.log("login unsuccessful")
+               
+            }
+
+            
+            
+
+        }
+    }
+</script>
